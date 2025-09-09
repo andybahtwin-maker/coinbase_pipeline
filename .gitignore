@@ -1,8 +1,23 @@
-# Ignore secrets and local files
-cdp_api_key*.json
+# Secrets
 .env
+*.env
+cdp_api_key*.json
+*.pem
+*.key
+
+# Python cruft
 .venv/
 __pycache__/
-*.pyc
-*.sqlite3
-*.log
+*.py[cod]
+*.egg-info/
+.cache/
+
+# Local data/outputs
+data/
+snapshots/*.csv
+!snapshots/.gitkeep
+
+# Editors
+.vscode/
+.idea/
+.DS_Store
