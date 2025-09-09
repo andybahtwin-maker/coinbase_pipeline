@@ -1,15 +1,7 @@
-.env
-*.env
-__pycache__/
-data/
-*.csv
-*.json
-cdp-api-key.json
-cdp_api_key.json
-cb_ecdsa.pem
 # Secrets
 .env
 cdp_api_key.json
+cb_ecdsa.pem
 
 # Python cruft
 __pycache__/
