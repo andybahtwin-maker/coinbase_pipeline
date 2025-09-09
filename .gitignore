@@ -1,39 +1,8 @@
-# --- Secrets & env ---
-.env
-*.env
-*.env.*.bak
-*.bak
-cdp_api_key.json
+# Ignore secrets and local files
 cdp_api_key*.json
-cdp*api*key*.json
-*_api_key*.json
-*.pem
-*.key
-# --- Local runtime / venv ---
+.env
 .venv/
 __pycache__/
-*.py[cod]
-*.egg-info/
-.cache/
-.DS_Store
-# --- Node stuff (in case) ---
-node_modules/
-npm-debug.log*
-yarn.lock
-package-lock.json
-# --- Data / outputs ---
-data/
-snapshots/*.csv
-!snapshots/.gitkeep
-# --- IDE/editor noise ---
-.vscode/
-.idea/
-*.swp
-*.swo
-*.sqlite3
-*.pyd
-# Secrets
-*.pyo
-cb_ecdsa.pem
-# Python cruft
 *.pyc
+*.sqlite3
+*.log
