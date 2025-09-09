@@ -1,11 +1,39 @@
-# Secrets
+# --- Secrets & env ---
 .env
+*.env
+*.env.*.bak
+*.bak
 cdp_api_key.json
-cb_ecdsa.pem
-
-# Python cruft
+cdp_api_key*.json
+cdp*api*key*.json
+*_api_key*.json
+*.pem
+*.key
+# --- Local runtime / venv ---
+.venv/
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*.egg-info/
+.cache/
+.DS_Store
+# --- Node stuff (in case) ---
+node_modules/
+npm-debug.log*
+yarn.lock
+package-lock.json
+# --- Data / outputs ---
+data/
+snapshots/*.csv
+!snapshots/.gitkeep
+# --- IDE/editor noise ---
+.vscode/
+.idea/
+*.swp
+*.swo
 *.sqlite3
+*.pyd
+# Secrets
+*.pyo
+cb_ecdsa.pem
+# Python cruft
+*.pyc
