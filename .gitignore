@@ -1,26 +1,9 @@
-# Secrets
-.env
-*.env
-cdp_api_key*.json
-*.pem
-*.key
+# Logs
+logs/
+*.log
 
-# Python cruft
-.venv/
-__pycache__/
-*.py[cod]
-*.egg-info/
-.cache/
+# Backups
+*.tar.gz
 
-# Local data/outputs
-data/
-snapshots/*.csv
-!snapshots/.gitkeep
-
-# Editors
-.vscode/
-.idea/
-.DS_Store
-.env.*
-!.env.example
-cdp_api_key.json
+# Security baselines
+.secrets.baseline
