@@ -1,0 +1,11 @@
+symbols: ["BTC-USD", "ETH-USD", "XRP-USD"]
+providers:
+  coinbase:
+    enabled: true
+    module: ".home.andhe001.projects.coinbase_pipeline.providers.binance_feed"
+    fn: "fetch_prices"
+fees:
+  gas_fee_usd: 0.85
+render:
+  show_boxes: true
+  decimals: 6

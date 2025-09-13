@@ -1,0 +1,10 @@
+exchanges:
+  coinbase:
+    taker_pct: 0.006
+    maker_pct: 0.002
+  kraken:
+    taker_pct: 0.0026
+    maker_pct: 0.0016
+  binance:
+    taker_pct: 0.001
+    maker_pct: 0.001
