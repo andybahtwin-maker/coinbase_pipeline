@@ -1,0 +1,20 @@
+{
+  "updated_at": "2025-09-12T00:00:00Z",
+  "kpi": {
+    "net_pnl": 0.0,
+    "fees_total": 0.0,
+    "win_rate": 0.0,
+    "avg_spread_bps": 0.0,
+    "trades": 0,
+    "realized_vol": 0.0,
+    "sharpe": 0.0,
+    "max_drawdown": 0.0,
+    "max_dd_duration": 0
+  },
+  "series": [
+    {"t":"2025-09-12T00:00:00Z","spread_bps":0.0,"net_pnl":0.0,"cum_pnl":0.0,"roll_vol":0.0,"drawdown":0.0}
+  ],
+  "trades": [
+    {"id":1,"t":"2025-09-12T00:00:00Z","pair":"BTC-USD","side":"long","qty":0.0,"gross_pnl":0.0,"fees_total":0.0,"slippage":0.0,"net_pnl":0.0,"hold_ms":0}
+  ]
+}

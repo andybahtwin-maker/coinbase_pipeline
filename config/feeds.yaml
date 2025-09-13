@@ -1,0 +1,29 @@
+symbols: ["BTC-USD","XRP-USD","ETH-USD","LTC-USD","SOL-USD","ADA-USD"]
+providers:
+  coinbase:
+    enabled: true
+    module: "providers.coinbase_adv"
+    fn: "fetch_prices"
+  kraken:
+    enabled: true
+    module: "providers.kraken_pub"
+    fn: "fetch_prices"
+  binance:
+    enabled: true
+    module: "providers.binance_pub"
+    fn: "fetch_prices"
+  coingecko:
+    enabled: true
+    module: "providers.coingecko_pub"
+    fn: "fetch_prices"
+fees:
+  # default % fees (can be exchange-specific in fees.yaml too)
+  taker_pct_default: 0.004   # 0.40%
+  maker_pct_default: 0.001   # 0.10%
+  gas_overhead_usd:
+    BTC-USD: 2.50
+    XRP-USD: 0.01
+render:
+  decimals: 6
+  history_points: 120    # how many points to keep for ASCII sparkline / PNG
+  refresh_seconds: 30    # for the live loop (script below)

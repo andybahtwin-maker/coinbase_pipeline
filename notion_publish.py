@@ -187,3 +187,203 @@ def publish_dashboard(
             _append(n, pid, [_divider(), _h("Live Charts", level=3)])
             cols = [[ _embed(u) ] for u in urls[:2]]
             _append_columns_strict(n, pid, cols)
+
+def publish_metrics(metrics: dict):
+    """
+    Safe wrapper to accept orchestrator metrics and forward to existing publisher(s).
+    Expected: metrics = {label: (value: float, is_fee: bool)}
+    """
+    # Try common entrypoints in this module
+    _candidates = [
+        'publish_metrics',
+        'publish',
+        'publish_boxes',
+        'update_page',
+        'upsert_database',
+    ]
+    # remove self-reference to avoid recursion
+    _self = publish_metrics
+    for _name in _candidates:
+        _fn = globals().get(_name)
+        if callable(_fn) and _fn is not _self:
+            try:
+                return _fn(metrics)  # prefer passing metrics
+            except TypeError:
+                return _fn()         # fallback: no-arg
+    _main = globals().get('main')
+    if callable(_main):
+        return _main()
+    raise RuntimeError("No suitable publisher function found in notion_publish.py")
+# --- minimal Notion publisher entrypoint (added by setup) ---
+import os, requests
+from datetime import datetime
+
+_NOTION_API = "https://api.notion.com/v1"
+_NOTION_VER = "2022-06-28"
+
+def _np_headers(token: str):
+    return {
+        "Authorization": f"Bearer {token}",
+        "Content-Type": "application/json",
+        "Notion-Version": _NOTION_VER,
+    }
+
+def _np_color(value: float, is_fee: bool) -> str:
+    if is_fee: return "blue_background"
+    return "green_background" if value >= 0 else "red_background"
+
+def _np_emoji(value: float, is_fee: bool) -> str:
+    if is_fee: return "🧾"
+    return "🟢" if value >= 0 else "🔴"
+
+def _np_create_page(token: str, parent_page_id: str, title: str) -> str:
+    payload = {
+        "parent": { "type": "page_id", "page_id": parent_page_id },
+        "properties": { "title": [{ "type": "text", "text": {"content": title} }] }
+    }
+    r = requests.post(f"{_NOTION_API}/pages", headers=_np_headers(token), json=payload, timeout=30)
+    r.raise_for_status()
+    return r.json()["id"]
+
+def _np_callout(label: str, value: float, is_fee: bool) -> dict:
+    return {
+        "object": "block",
+        "type": "callout",
+        "callout": {
+            "icon": { "emoji": _np_emoji(value, is_fee) },
+            "rich_text": [{
+                "type": "text",
+                "text": {"content": f"{label}: {value:.6f}"},
+                "annotations": { "bold": True }
+            }],
+            "color": _np_color(value, is_fee)
+        }
+    }
+
+def publish(metrics: dict):
+    """
+    Minimal entrypoint used by the bridge. Expects:
+      metrics = { label: (value: float, is_fee: bool), ... }
+    Uses env: NOTION_TOKEN, NOTION_PARENT_PAGE_ID, NOTION_TITLE_PREFIX (optional)
+    """
+    token = os.environ.get("NOTION_TOKEN") or os.environ.get("NOTION_API_KEY")
+    parent = os.environ.get("NOTION_PARENT_PAGE_ID") or os.environ.get("NOTION_PAGE_ID")
+    if not token or not parent:
+        raise RuntimeError("NOTION_TOKEN / NOTION_PARENT_PAGE_ID not set")
+
+    prefix = os.environ.get("NOTION_TITLE_PREFIX", "Coinbase Pipeline")
+    title = f"{prefix} · {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+
+    page_id = _np_create_page(token, parent, title)
+
+    normals = [(k, v) for k, v in metrics.items() if not v[1]]
+    fees    = [(k, v) for k, v in metrics.items() if v[1]]
+
+    blocks = []
+    for k, (val, fee) in normals:
+        blocks.append(_np_callout(k, float(val), fee))
+    if fees:
+        blocks.append({ "object": "block", "type": "divider", "divider": {} })
+        for k, (val, fee) in fees:
+            blocks.append(_np_callout(k, float(val), fee))
+
+    r = requests.patch(
+        f"{_NOTION_API}/blocks/{page_id}/children",
+        headers=_np_headers(token),
+        json={ "children": blocks },
+        timeout=30
+    )
+    r.raise_for_status()
+    return page_id
+# --- end minimal Notion publisher ---
+
+
+def publish_boxes_colored(metrics: dict):
+    """
+    Hardened: loads .env via python-dotenv, maps env names,
+    normalizes parent ID, logs status/errors, fees in title, colored numbers.
+    """
+    import os, re, requests
+    from datetime import datetime
+    try:
+        from dotenv import load_dotenv
+        load_dotenv(dotenv_path=os.path.join(os.getcwd(), ".env"))
+    except Exception:
+        pass
+
+    # Map legacy names
+    token = os.environ.get("NOTION_TOKEN") or os.environ.get("NOTION_API_KEY")
+    parent = os.environ.get("NOTION_PARENT_PAGE_ID") or os.environ.get("NOTION_PAGE_ID")
+    if not token or not parent:
+        raise RuntimeError("Notion env missing: need NOTION_TOKEN/NOTION_API_KEY and NOTION_PARENT_PAGE_ID/NOTION_PAGE_ID")
+
+    # Normalize parent: add hyphens if it's the 32-char compact UUID
+    m = re.fullmatch(r"[0-9a-fA-F]{32}", parent or "")
+    if m:
+        parent = f"{parent[0:8]}-{parent[8:12]}-{parent[12:16]}-{parent[16:20]}-{parent[20:32]}"
+
+    NOTION_API="https://api.notion.com/v1"; NOTION_VER="2022-06-28"
+    def H(): return {"Authorization": f"Bearer {token}","Content-Type":"application/json","Notion-Version":NOTION_VER}
+
+    prefix = os.environ.get("NOTION_TITLE_PREFIX","Arb Dashboard")
+    title = f"{prefix} · {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+
+    debug_token = token[:6] + "…" if token else "None"
+    print(f"🔐 Notion token prefix: {debug_token}")
+    print(f"📄 Parent page id: {parent}")
+
+    # Create page
+    resp = requests.post(f"{NOTION_API}/pages", headers=H(), json={
+        "parent": {"type":"page_id","page_id": parent},
+        "properties": {"title": [{"type":"text","text":{"content": title}}]}
+    }, timeout=30)
+    if not resp.ok:
+        print("❌ create page failed:", resp.status_code, resp.text)
+        resp.raise_for_status()
+    page_id = resp.json()["id"]
+
+    # Partition + collect fees for title subtitle
+    spreads, others, fees = [], [], []
+    fee_title_bits=[]
+    for k,(v,is_fee) in metrics.items():
+        if is_fee:
+            fees.append((k,v)); fee_title_bits.append(f"{k}={v:.4f}")
+        elif "spread" in k.lower():
+            spreads.append((k,v))
+        else:
+            others.append((k,v))
+
+    # build blocks (heading + optional fee line)
+    blocks=[{"object":"block","type":"heading_2","heading_2":{"rich_text":[{"type":"text","text":{"content":"Market Snapshot"}}]}}]
+    if fee_title_bits:
+        blocks.append({"object":"block","type":"heading_3","heading_3":{"rich_text":[{"type":"text","text":{"content":"Fees: "+", ".join(fee_title_bits)}}],"color":"blue"}})
+
+    def colored(label, val, fee=False):
+        color = "blue" if fee else ("green" if val>=0 else "red")
+        return {"type":"paragraph","paragraph":{"rich_text":[
+            {"type":"text","text":{"content":label+": "}},
+            {"type":"text","text":{"content":f"{val:.6f}"},"annotations":{"bold":True,"color":color}}
+        ]}}
+
+    def col(title, arr, fee=False):
+        children=[{"object":"block","type":"heading_3","heading_3":{"rich_text":[{"type":"text","text":{"content":title}}]}}]
+        if not arr:
+            children.append({"type":"paragraph","paragraph":{"rich_text":[{"type":"text","text":{"content":"(no data)"}}]}})
+        else:
+            for k,v in arr:
+                children.append(colored(k, float(v), fee))
+        return {"object":"block","type":"column","column":{"children":children}}
+
+    col_list={"object":"block","type":"column_list","column_list":{"children":[
+        col("Spreads (fees incl)", spreads, False),
+        col("Metrics", others, False),
+        col("Fees", fees, True),
+    ]}}
+    blocks.append(col_list)
+
+    resp = requests.patch(f"{NOTION_API}/blocks/{page_id}/children", headers=H(), json={"children":blocks}, timeout=30)
+    if not resp.ok:
+        print("❌ append blocks failed:", resp.status_code, resp.text)
+        resp.raise_for_status()
+    print("✅ Notion colored page updated.")
+    return page_id
