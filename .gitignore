@@ -16,3 +16,8 @@ logs/
 *.pem
 .secrets.baseline
 cdp_api_key.json
+.venv/
+__pycache__/
+*.tar.gz
+*.zip
+data/
