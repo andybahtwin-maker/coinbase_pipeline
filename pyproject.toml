@@ -1,0 +1,13 @@
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+select = ["E","F","I","UP","B","C90"]
+ignore = []
+
+[tool.ruff.isort]
+known-first-party = ["coinbase_pipeline"]
+combine-as-imports = true
