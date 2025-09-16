@@ -14,3 +14,6 @@ pandas>=2.2
 matplotlib>=3.9
 plotext>=5.2
 requests>=2.32
+altair>=5.0
+
+streamlit-extras>=0.4.0

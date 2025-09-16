@@ -61,7 +61,13 @@ def calc_spreads(df: pd.DataFrame):
                     continue
                 edge = (s_ - b)/b*100.0
                 pairs.append({"symbol":sym,"buy_ex":b_ex,"buy":b,"sell_ex":s_ex,"sell":s_,"edge_pct":edge})
-    pair_detail=pd.DataFrame(pairs).sort_values(["symbol","edge_pct"], ascending=False)
+    pair_detail = pd.DataFrame(pairs)
+    # Ensure expected columns exist
+    if 'symbol' not in pair_detail.columns:
+        pair_detail['symbol'] = 'UNKNOWN'
+    if 'edge_pct' not in pair_detail.columns:
+        pair_detail['edge_pct'] = 0.0
+    pair_detail = pair_detail.sort_values(['symbol','edge_pct'], ascending=False)
     return pivot, sym_summary, pair_detail
 
 def make_summary_text(sym_summary, top_n=4):

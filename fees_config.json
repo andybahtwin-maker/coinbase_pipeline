@@ -1,0 +1,9 @@
+{
+  "defaults": { "usd_trade_size": 100.0, "assume_role": "taker" },
+  "exchanges": {
+    "kraken":   { "maker": 0.0020, "taker": 0.0035 },
+    "bitfinex": { "maker": 0.0010, "taker": 0.0020 },
+    "bitstamp": { "maker": 0.0010, "taker": 0.0020 },
+    "coinbase": { "maker": 0.0040, "taker": 0.0060 }
+  }
+}

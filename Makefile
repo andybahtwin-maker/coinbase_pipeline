@@ -1,20 +1,21 @@
-.PHONY: demo report fmt lint clean
+VENV=.venv
+PYTHON=$(VENV)/bin/python
+PIP=$(VENV)/bin/pip
 
-demo:
-./scripts/run_demo_showcase.sh
+.PHONY: venv deps web notion both
 
-report:
-bash _ops_size_report.sh || true
-@echo "Open report_repo_health.md"
+venv:
+@test -d $(VENV) || python3 -m venv $(VENV)
 
-fmt:
-python3 -m pip install -q --upgrade pip black ruff
-ruff check . --fix || true
-black . || true
+deps: venv
+@. $(VENV)/bin/activate; pip install -U pip wheel
+@. $(VENV)/bin/activate; pip install -r requirements.txt || true
 
-lint:
-python3 -m pip install -q --upgrade pip ruff
-ruff check .
+web: deps
+@APP_FILE=$(APP_FILE) ./run.sh web
 
-clean:
-rm -rf __pycache__ */__pycache__ .pytest_cache .mypy_cache .ruff_cache
+notion: deps
+@NOTION_ENTRY=$(NOTION_ENTRY) NOTION_TOKEN=$(NOTION_TOKEN) NOTION_PAGE_ID=$(NOTION_PAGE_ID) ./run.sh notion
+
+both: deps
+@APP_FILE=$(APP_FILE) NOTION_ENTRY=$(NOTION_ENTRY) NOTION_TOKEN=$(NOTION_TOKEN) NOTION_PAGE_ID=$(NOTION_PAGE_ID) ./run.sh both
