@@ -37,3 +37,10 @@ cdp_api_key*.json
 /data/*.csv
 /local_archive/
 /json/tmp/
+
+# Ignore local archives and large backups
+.local_archive/
+*.tar.gz
+*.zip
+*.bak*
+*_bak*
