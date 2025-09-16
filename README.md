@@ -1,26 +1,22 @@
 # Coinbase Pipeline Dashboard
 
-A **Streamlit dashboard** and supporting scripts for monitoring Bitcoin across exchanges and retrieving your **Coinbase Advanced Trade balances**. Designed as a portfolio-quality project to showcase Python, API integration, and workflow automation.
+A single, clean dashboard that shows **live BTC prices across major venues**, **fee-aware spreads**, **net edge after two legs**, and **(optional) Coinbase balances** — with one-click CSV export and Notion/Email hooks.
 
----
+## Why it matters
+- **Traders/Investors:** See cross-exchange edge after fees at a glance.
+- **Hiring Managers:** Demonstrates API integration, error handling, caching, and a responsive UI.
+- **Reliability:** Hard timeouts + caching ensure the app never “freezes”.
 
-## ✨ Features
-- 📊 **Live BTC prices** from Coinbase, Kraken, Binance, Bitstamp, and Bitfinex  
-- 💰 **Coinbase balances** via Advanced Trade API (ECDSA or HMAC keys)  
-- 📧 **One-click email snapshot** with CSV attachments (balances + prices)  
-- 🔒 Secure handling of secrets using `.env` or `cdp_api_key.json`  
-- 🚀 Deployable Streamlit app with modern, responsive UI  
-
----
-
-## 🛠️ Setup
-
-### 1. Clone & enter project
-```bash
-git clone https://github.com/andybahtwin-maker/coinbase_pipeline.git
-cd coinbase_pipeline
+## Quick start
+\`\`\`bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env
-./run_app.sh
+pip install --upgrade pip -r requirements.txt
+./run_simple.sh
+\`\`\`
+
+Optional: put your Coinbase key JSON at \`./cdp_api_key.json\` or set \`CB_API_KEY/CB_API_SECRET/CB_API_PASSPHRASE\` in \`.env\`.
+
+## Notes
+- Secrets are loaded from \`.env\` or \`cdp_api_key.json\` (never committed).
+- Repo kept lean via \`scripts/repo_prune_safe.sh\` and \`.gitignore\`.

@@ -1,23 +1,39 @@
-# venv & local
-.venv/
+# Python
 __pycache__/
 *.pyc
+.venv/
+*.egg-info/
 
-# logs & artifacts
-logs/
-*.log
-*.tgz
-*.tar.gz
-*.zip
+# Streamlit
+.streamlit/secrets.toml
+.streamlit/logs/
 
-# secrets
+# Node/web
+node_modules/
+dist/
+build/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+
+# Secrets & env
 .env
 .env.*
-*.pem
-.secrets.baseline
-cdp_api_key.json
-.venv/
-__pycache__/
-*.tar.gz
-*.zip
-data/
+cdp_api_key*.json
+*token*
+*secret*
+*credentials*
+
+# Caches/logs/backups
+.cache/
+*.log
+*.bak
+*_bak*
+*.bak_*
+
+# Local data artifacts
+/local_data/
+/data/*.csv
+/local_archive/
+/json/tmp/

@@ -1,0 +1,25 @@
+{
+  "coinbase": {
+    "BTC-USD": 116292.96,
+    "XRP-USD": 3.1047,
+    "ETH-USD": 4710.1,
+    "LTC-USD": 118.41,
+    "SOL-USD": 243.76,
+    "ADA-USD": 0.9269
+  },
+  "kraken": {
+    "BTC-USD": 116292.1
+  },
+  "binance": {
+    "BTC-USD": 116226.99,
+    "XRP-USD": 3.1029,
+    "ETH-USD": 4707.49,
+    "LTC-USD": 118.32,
+    "SOL-USD": 243.62,
+    "ADA-USD": 0.9263
+  },
+  "coingecko": {
+    "BTC-USD": 116286.0,
+    "XRP-USD": 3.1
+  }
+}

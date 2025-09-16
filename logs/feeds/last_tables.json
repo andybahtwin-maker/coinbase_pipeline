@@ -1,0 +1,170 @@
+{
+  "BTC-USD": {
+    "best_buy_ex": "binance",
+    "best_sell_ex": "binance",
+    "rows": [
+      {
+        "exchange": "coinbase",
+        "raw": 116292.96,
+        "buy_eff": 116991.20617800001,
+        "sell_eff": 115594.713822,
+        "pct_taker": 0.006,
+        "gas_usd": 0.48841799999999996
+      },
+      {
+        "exchange": "kraken",
+        "raw": 116292.1,
+        "buy_eff": 116594.94787799999,
+        "sell_eff": 115989.252122,
+        "pct_taker": 0.0026,
+        "gas_usd": 0.48841799999999996
+      },
+      {
+        "exchange": "binance",
+        "raw": 116226.99,
+        "buy_eff": 116343.70540799998,
+        "sell_eff": 116110.27459200002,
+        "pct_taker": 0.001,
+        "gas_usd": 0.48841799999999996
+      },
+      {
+        "exchange": "coingecko",
+        "raw": 116286.0,
+        "buy_eff": 116751.632418,
+        "sell_eff": 115820.367582,
+        "pct_taker": 0.004,
+        "gas_usd": 0.48841799999999996
+      }
+    ],
+    "spread_abs": -233.43081599996367,
+    "spread_pct": -0.0020063897327436556
+  },
+  "XRP-USD": {
+    "best_buy_ex": "binance",
+    "best_sell_ex": "binance",
+    "rows": [
+      {
+        "exchange": "coinbase",
+        "raw": 3.1047,
+        "buy_eff": 3.1333282,
+        "sell_eff": 3.0760718,
+        "pct_taker": 0.006,
+        "gas_usd": 0.01
+      },
+      {
+        "exchange": "binance",
+        "raw": 3.1029,
+        "buy_eff": 3.1160028999999994,
+        "sell_eff": 3.0897971,
+        "pct_taker": 0.001,
+        "gas_usd": 0.01
+      },
+      {
+        "exchange": "coingecko",
+        "raw": 3.1,
+        "buy_eff": 3.1224,
+        "sell_eff": 3.0776000000000003,
+        "pct_taker": 0.004,
+        "gas_usd": 0.01
+      }
+    ],
+    "spread_abs": -0.02620579999999917,
+    "spread_pct": -0.008410069194736363
+  },
+  "ETH-USD": {
+    "best_buy_ex": "binance",
+    "best_sell_ex": "binance",
+    "rows": [
+      {
+        "exchange": "coinbase",
+        "raw": 4710.1,
+        "buy_eff": 4738.3606,
+        "sell_eff": 4681.839400000001,
+        "pct_taker": 0.006,
+        "gas_usd": 0.0
+      },
+      {
+        "exchange": "binance",
+        "raw": 4707.49,
+        "buy_eff": 4712.19749,
+        "sell_eff": 4702.78251,
+        "pct_taker": 0.001,
+        "gas_usd": 0.0
+      }
+    ],
+    "spread_abs": -9.41497999999956,
+    "spread_pct": -0.0019980019980019048
+  },
+  "LTC-USD": {
+    "best_buy_ex": "binance",
+    "best_sell_ex": "binance",
+    "rows": [
+      {
+        "exchange": "coinbase",
+        "raw": 118.41,
+        "buy_eff": 119.12046,
+        "sell_eff": 117.69954,
+        "pct_taker": 0.006,
+        "gas_usd": 0.0
+      },
+      {
+        "exchange": "binance",
+        "raw": 118.32,
+        "buy_eff": 118.43831999999998,
+        "sell_eff": 118.20168,
+        "pct_taker": 0.001,
+        "gas_usd": 0.0
+      }
+    ],
+    "spread_abs": -0.23663999999997998,
+    "spread_pct": -0.0019980019980018293
+  },
+  "SOL-USD": {
+    "best_buy_ex": "binance",
+    "best_sell_ex": "binance",
+    "rows": [
+      {
+        "exchange": "coinbase",
+        "raw": 243.76,
+        "buy_eff": 245.22256,
+        "sell_eff": 242.29744,
+        "pct_taker": 0.006,
+        "gas_usd": 0.0
+      },
+      {
+        "exchange": "binance",
+        "raw": 243.62,
+        "buy_eff": 243.86361999999997,
+        "sell_eff": 243.37638,
+        "pct_taker": 0.001,
+        "gas_usd": 0.0
+      }
+    ],
+    "spread_abs": -0.48723999999995726,
+    "spread_pct": -0.001998001998001823
+  },
+  "ADA-USD": {
+    "best_buy_ex": "binance",
+    "best_sell_ex": "binance",
+    "rows": [
+      {
+        "exchange": "coinbase",
+        "raw": 0.9269,
+        "buy_eff": 0.9324614,
+        "sell_eff": 0.9213385999999999,
+        "pct_taker": 0.006,
+        "gas_usd": 0.0
+      },
+      {
+        "exchange": "binance",
+        "raw": 0.9263,
+        "buy_eff": 0.9272263,
+        "sell_eff": 0.9253737,
+        "pct_taker": 0.001,
+        "gas_usd": 0.0
+      }
+    ],
+    "spread_abs": -0.001852599999999982,
+    "spread_pct": -0.001998001998001979
+  }
+}

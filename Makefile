@@ -1,21 +1,13 @@
-VENV=.venv
-PYTHON=$(VENV)/bin/python
-PIP=$(VENV)/bin/pip
+.PHONY: run demo clean prune
 
-.PHONY: venv deps web notion both
+run:
+./run_simple.sh
 
-venv:
-@test -d $(VENV) || python3 -m venv $(VENV)
+demo:
+APP_DEMO_FALLBACK=true ./run_simple.sh
 
-deps: venv
-@. $(VENV)/bin/activate; pip install -U pip wheel
-@. $(VENV)/bin/activate; pip install -r requirements.txt || true
+clean:
+rm -rf .cache __pycache__ .pytest_cache .streamlit/logs
 
-web: deps
-@APP_FILE=$(APP_FILE) ./run.sh web
-
-notion: deps
-@NOTION_ENTRY=$(NOTION_ENTRY) NOTION_TOKEN=$(NOTION_TOKEN) NOTION_PAGE_ID=$(NOTION_PAGE_ID) ./run.sh notion
-
-both: deps
-@APP_FILE=$(APP_FILE) NOTION_ENTRY=$(NOTION_ENTRY) NOTION_TOKEN=$(NOTION_TOKEN) NOTION_PAGE_ID=$(NOTION_PAGE_ID) ./run.sh both
+prune:
+scripts/repo_prune_safe.sh
