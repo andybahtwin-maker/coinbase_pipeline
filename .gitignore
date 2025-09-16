@@ -58,3 +58,10 @@ cdp_api_key*.json
 *.bak*
 *_bak*
 .local_archive/
+
+# Ignore archives, backups, and junk
+*.tar.gz
+*.zip
+*.bak*
+*_bak*
+.local_archive/
