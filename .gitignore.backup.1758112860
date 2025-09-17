@@ -1,0 +1,75 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# Streamlit
+.streamlit/secrets.toml
+.streamlit/logs/
+
+# Node/web
+node_modules/
+dist/
+build/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+
+# Secrets & env
+.env
+.env.*
+cdp_api_key*.json
+*token*
+*secret*
+*credentials*
+
+# Caches/logs/backups
+.cache/
+*.log
+*.bak
+*_bak*
+*.bak_*
+
+# Local data artifacts
+/local_data/
+/data/*.csv
+/local_archive/
+/json/tmp/
+
+# Ignore local archives and large backups
+.local_archive/
+*.tar.gz
+*.zip
+*.bak*
+*_bak*
+
+# Ignore archives, backups, and junk
+*.tar.gz
+*.zip
+*.bak*
+*_bak*
+.local_archive/
+
+# Ignore archives, backups, and junk
+*.tar.gz
+*.zip
+*.bak*
+*_bak*
+.local_archive/
+
+# Ignore archives, backups, and junk
+*.tar.gz
+*.zip
+*.bak*
+*_bak*
+.local_archive/
+
+# Ignore archives, backups, and junk
+*.tar.gz
+*.zip
+*.bak*
+*_bak*
+.local_archive/
+.local_secrets/
