@@ -5,3 +5,5 @@ numpy>=1.26
 python-dotenv>=1.0
 requests>=2.32
 matplotlib>=3.9
+openai>=1.40
+groq>=0.9.0

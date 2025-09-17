@@ -72,3 +72,4 @@ cdp_api_key*.json
 *.bak*
 *_bak*
 .local_archive/
+.local_secrets/

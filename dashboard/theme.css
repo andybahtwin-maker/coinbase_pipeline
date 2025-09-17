@@ -1,0 +1,29 @@
+/* Stealth bomber cockpit theme with animated highlights */
+body, .stApp {
+  background-color: #0d1117 !important;
+  color: #e6edf3 !important;
+  font-family: "JetBrains Mono", monospace !important;
+}
+h1,h2,h3,h4,h5 { color: #58a6ff !important; font-weight: 700; letter-spacing: 0.5px; }
+div[data-testid="stMetricValue"] { font-size: 28px !important; font-weight: bold !important; }
+[data-testid="stMetric"] { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 10px; }
+
+/* Arbitrage glow effect */
+@keyframes glow-green {
+  from { text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; }
+  to   { text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00; }
+}
+@keyframes glow-red {
+  from { text-shadow: 0 0 5px #ff4444, 0 0 10px #ff0000; }
+  to   { text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000; }
+}
+.net-profit {
+  color: #00ff00 !important;
+  font-weight: bold;
+  animation: glow-green 1s ease-in-out infinite alternate;
+}
+.net-loss {
+  color: #ff4444 !important;
+  font-weight: bold;
+  animation: glow-red 1s ease-in-out infinite alternate;
+}
