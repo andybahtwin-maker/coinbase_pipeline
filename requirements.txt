@@ -1,9 +1,12 @@
-streamlit>=1.36
 ccxt>=4.3
-pandas>=2.2
+groq>=0.9.0
+matplotlib>=3.9
 numpy>=1.26
+openai>=1.40
+pandas>=2.2
+plotly>=5.22
 python-dotenv>=1.0
 requests>=2.32
-matplotlib>=3.9
-openai>=1.40
-groq>=0.9.0
+streamlit>=1.31
+streamlit>=1.35
+streamlit>=1.36

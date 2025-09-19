@@ -1,25 +1,65 @@
+import os
 import streamlit as st
-from fees import FeeBook, render_opportunity_detail
+import pandas as pd
+import ccxt
+from datetime import datetime
 
-st.set_page_config(page_title="Coinbase Pipeline Demo", layout="wide")
+# Load environment
+CB_API_KEY = os.getenv("CB_API_KEY", "")
+CB_API_SECRET = os.getenv("CB_API_SECRET", "")
+CB_API_PASSPHRASE = os.getenv("CB_API_PASSPHRASE", "")
 
-st.sidebar.header("Calc Options")
-_default_usd = FeeBook().default_usd()
-_usd_size = st.sidebar.number_input("Trade size (USD)", min_value=10.0, value=_default_usd, step=10.0)
-_include_fees = st.sidebar.checkbox("Include fees", value=True)
-_role = st.sidebar.radio("Role", ["taker", "maker"], index=0)
+st.set_page_config(page_title="Crypto Arbitrage Dashboard", layout="wide")
 
-st.title("Coinbase Pipeline Demo")
-st.subheader("Top Spread Opportunities")
+st.sidebar.title("⚡ Status")
+if CB_API_KEY and CB_API_SECRET and CB_API_PASSPHRASE:
+    st.sidebar.success("Coinbase API keys loaded")
+else:
+    st.sidebar.error("Missing Coinbase credentials in .env")
 
-# demo pairs (replace with your real loop later)
-opportunities = [
-    ("bitstamp", 25000.0, "bitfinex", 25200.0),
-    ("kraken", 24980.0, "coinbase", 25150.0),
-]
+# Set up exchanges
+exchanges = {
+    "coinbase": ccxt.coinbase({
+        "apiKey": CB_API_KEY,
+        "secret": CB_API_SECRET,
+        "password": CB_API_PASSPHRASE,
+    }),
+    "binance": ccxt.binance(),
+    "kraken": ccxt.kraken(),
+}
 
-for buy_ex, buy_px, sell_ex, sell_px in opportunities:
-    st.markdown(f"**Buy {buy_ex} @ {buy_px:,.2f} → Sell {sell_ex} @ {sell_px:,.2f}**")
-    render_opportunity_detail(buy_ex, buy_px, sell_ex, sell_px,
-                              usd_size=_usd_size, include_fees=_include_fees, role=_role)
-    st.divider()
+def fetch_price(exchange, symbol="BTC/USDT"):
+    try:
+        ticker = exchanges[exchange].fetch_ticker(symbol)
+        return ticker["last"]
+    except Exception as e:
+        st.sidebar.warning(f"{exchange} error: {e}")
+        return None
+
+st.title("📊 Bitcoin Arbitrage Monitor")
+
+# Fetch prices
+prices = {}
+for ex in exchanges:
+    prices[ex] = fetch_price(ex)
+
+valid_prices = {k: v for k, v in prices.items() if v is not None}
+
+if valid_prices:
+    df = pd.DataFrame(list(valid_prices.items()), columns=["Exchange", "Price"])
+    st.subheader("Current BTC Prices")
+    st.table(df)
+
+    max_ex = df.loc[df["Price"].idxmax()]
+    min_ex = df.loc[df["Price"].idxmin()]
+    spread = max_ex["Price"] - min_ex["Price"]
+
+    st.metric(
+        label="Best Arbitrage Spread (USD)",
+        value=f"${spread:,.2f}",
+        delta=f"Buy on {min_ex['Exchange']} / Sell on {max_ex['Exchange']}"
+    )
+
+    st.line_chart(df.set_index("Exchange"))
+else:
+    st.error("No valid price data available.")
