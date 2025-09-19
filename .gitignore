@@ -31,3 +31,6 @@ cdp_api_key.json
 .vscode/
 .DS_Store
 *.swp
+
+# allow example env to be committed
+!.env.example
