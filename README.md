@@ -1,22 +1,28 @@
-# Coinbase Pipeline Dashboard
+# Coinbase Pipeline — Trading Control Panel
 
-A single, clean dashboard that shows **live BTC prices across major venues**, **fee-aware spreads**, **net edge after two legs**, and **(optional) Coinbase balances** — with one-click CSV export and Notion/Email hooks.
+**What it shows (portfolio-ready):**
+- Hero metrics: **Total USD balance**, **BTC/USD @ Coinbase**, **Spread vs Binance ($ / %)**  
+- Live **candlestick** (Coinbase)  
+- **Balances** table (top 10, formatted)  
+- Tabs: **Balances**, **Trade** (simulated by default), **Arbitrage/Fees**, **AI Summary**, **Env Health**, **Notion Snapshot**
 
-## Why it matters
-- **Traders/Investors:** See cross-exchange edge after fees at a glance.
-- **Hiring Managers:** Demonstrates API integration, error handling, caching, and a responsive UI.
-- **Reliability:** Hard timeouts + caching ensure the app never “freezes”.
+## Quick Start
+```bash
+./run_all.sh
+```
 
-## Quick start
-\`\`\`bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install --upgrade pip -r requirements.txt
-./run_simple.sh
-\`\`\`
+## Configure (local only — never commit real secrets)
+Create `.env` (or `secrets/.env`) with:
+```bash
+CB_API_KEY=...
+CB_API_SECRET=...
+CB_API_PASSPHRASE=...
+ALLOW_LIVE_TRADES=no
+DEMO_MODE=no
+LOG_LEVEL=INFO
+```
+See `.env.example` for the full list.
 
-Optional: put your Coinbase key JSON at \`./cdp_api_key.json\` or set \`CB_API_KEY/CB_API_SECRET/CB_API_PASSPHRASE\` in \`.env\`.
-
-## Notes
-- Secrets are loaded from \`.env\` or \`cdp_api_key.json\` (never committed).
-- Repo kept lean via \`scripts/repo_prune_safe.sh\` and \`.gitignore\`.
+## Safety
+- Secrets are ignored by `.gitignore` (and optional pre-commit guard).
+- Trading is **SIMULATED** by default; set `ALLOW_LIVE_TRADES=yes` to enable live orders.
