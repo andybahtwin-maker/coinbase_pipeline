@@ -1,36 +1,23 @@
-# Python
 .venv/
 __pycache__/
 *.pyc
 
-# Build/cache
+logs/
 .cache/
-cache/
-dist/
-build/
+*.log
+*.csv
 
-# Local secrets / envs (never commit)
 .env
 .env.*
 *.env
-*.env.*
-*env*    # broad catch; we also use pre-commit to block mistakes
 secrets/
 cdp_api_key.json
-*.pem
-*.key
-*.p12
-*.crt
-*.der
-*.keystore
+cdp_api_key.json.disabled
 
-# Streamlit local creds
 .streamlit/
 
-# Editors/OS junk
-.vscode/
 .DS_Store
+.vscode/
 *.swp
 
-# allow example env to be committed
 !.env.example
