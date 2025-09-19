@@ -1434,3 +1434,127 @@ Traceback (most recent call last):
   File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
     from notion_publish import publish_dashboard, _p_spans
 ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
+Traceback (most recent call last):
+  File "/home/andhe001/projects/coinbase_pipeline/fetch_and_publish.py", line 15, in <module>
+    from notion_publish import publish_dashboard, _p_spans
+ImportError: cannot import name 'publish_dashboard' from 'notion_publish' (/home/andhe001/projects/coinbase_pipeline/notion_publish.py)
