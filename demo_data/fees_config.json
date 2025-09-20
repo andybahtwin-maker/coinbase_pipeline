@@ -1,4 +1,1 @@
-{
-  "coinbase": {"taker_bps": 10, "maker_bps": 6},
-  "binance":  {"taker_bps": 8,  "maker_bps": 5}
-}
+{ "coinbase": {"taker_bps": 10, "maker_bps": 6}, "binance": {"taker_bps": 8, "maker_bps": 5} }
