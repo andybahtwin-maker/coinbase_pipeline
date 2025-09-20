@@ -1,0 +1,17 @@
+name: portfolio-smoke
+on: [push, pull_request]
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          test -f ui/portfolio_demo.py
+          test -f demo_data/fees_config.json
+          test -f demo_data/sample_ticks.csv
+          test -f docs/index.html
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.lock.txt

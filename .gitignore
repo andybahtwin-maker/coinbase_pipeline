@@ -16,3 +16,5 @@ cdp_api_key.json.disabled
 .vscode/
 *.swp
 !.env.example
+.pytest_cache/
+demo_data/*.tmp
