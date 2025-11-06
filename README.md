@@ -32,19 +32,19 @@ Clone the repo and run everything with one command:
 
 🧠 Tech Stack
 
-    Python — data fetching, ETL, and logic
+    Python — data fetching, ETL, and trade simulation
 
-    Streamlit — interactive web dashboard
+    Streamlit — interactive dashboard interface
 
-    Pandas / NumPy — data processing
+    Pandas / NumPy — data transformation
 
     Coinbase + Binance APIs — live market data
 
-    OpenAI (optional) — AI summaries
+    OpenAI (optional) — AI-driven portfolio summaries
 
-    Notion API — portfolio notes integration
+    Notion API — pull portfolio notes or snapshots
 
-    Shell scripts — simple local orchestration
+    Shell scripts — orchestrate local startup
 
 🔒 Security
 
